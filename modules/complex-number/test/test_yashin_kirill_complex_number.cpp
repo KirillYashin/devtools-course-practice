@@ -13,8 +13,8 @@ TEST(Yashin_Kirill_ComplexNumberTest, Can_Create_Zero) {
     ComplexNumber z(re, im);
 
     // Assert
-    EXPECT_EQ(re, z.getRe());
-    EXPECT_EQ(im, z.getIm());
+    ASSERT_NO_THROW(z.getRe());
+    ASSERT_NO_THROW(z.getIm());
 }
 
 TEST(Yashin_Kirill_ComplexNumberTest, Can_Add_Positive) {
