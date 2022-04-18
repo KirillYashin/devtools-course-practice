@@ -89,7 +89,7 @@ TEST(Yashin_Kirill_Binary_Search_Test, search_in_unsorted) {
     };
     BinarySearch<int> b;
     int result = b.BinSearch(4, array, 0,
-        static_cast<int>(array.size()));
+        static_cast<int>(array.size()) - 1);
     ASSERT_EQ(-1, result);
 }
 
