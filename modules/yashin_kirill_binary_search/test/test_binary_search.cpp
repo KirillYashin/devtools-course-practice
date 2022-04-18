@@ -79,7 +79,6 @@ TEST(Yashin_Kirill_Binary_Search_Test, error_messages_test) {
             static_cast<int>(array.size()) - 1, 0);
         FAIL();
     } catch (const std::string error_msg) {
-        ASSERT_EQ("Right border must be >= than left border",
-            error_msg);
+        ASSERT_EQ("Left border > right border", error_msg);
     }
 }
