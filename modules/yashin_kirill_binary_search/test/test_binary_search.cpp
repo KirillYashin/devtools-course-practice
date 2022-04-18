@@ -82,3 +82,22 @@ TEST(Yashin_Kirill_Binary_Search_Test, error_messages_test) {
         ASSERT_EQ("Left border > right border", error_msg);
     }
 }
+
+TEST(Yashin_Kirill_Binary_Search_Test, search_in_unsorted) {
+    std::vector<int> array = {
+        2, 1, 4, 3, 6, 5, 0
+    };
+    BinarySearch<int> b;
+    int result = b.BinSearch(4, array, 0,
+        static_cast<int>(array.size()));
+    ASSERT_EQ(-1, result);
+}
+
+TEST(Yashin_Kirill_Binary_Search_Test, equal_borders_search) {
+    std::vector<int> array = {
+        0, 1, 2, 3, 5, 6
+    };
+    BinarySearch<int> b;
+    int result = b.BinSearch(1, array, 2, 2);
+    ASSERT_EQ(-1, result);
+}
