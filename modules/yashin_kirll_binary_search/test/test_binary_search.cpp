@@ -39,7 +39,8 @@ TEST(Yashin_Kirill_Binary_Search_Test, correct_work_on_missing_value) {
         -5, -3, -1, 0, 1, 3, 5
     };
     BinarySearch<int> b;
-    int result = b.BinSearch(1337, array, 0, static_cast<int>(array.size()) - 1);
+    int result = b.BinSearch(1337, array, 0,
+        static_cast<int>(array.size()) - 1);
     ASSERT_EQ(-1, result);
 }
 
@@ -58,23 +59,27 @@ TEST(Yashin_Kirill_Binary_Search_Test, error_messages_test) {
     };
     BinarySearch<int> b;
     try {
-        int result = b.BinSearch(0, array, 1, static_cast<int>(array.size()) + 1);
+        int result = b.BinSearch(0, array, 1,
+            static_cast<int>(array.size()) + 1);
         FAIL();
     } catch (const std::string error_msg) {
         ASSERT_EQ("Right search border is out of range", error_msg);
     }
 
     try {
-        int result = b.BinSearch(0, array, -1, static_cast<int>(array.size()) + 1);
+        int result = b.BinSearch(0, array, -1,
+            static_cast<int>(array.size()) + 1);
         FAIL();
     } catch (const std::string error_msg) {
         ASSERT_EQ("Left search border is out of range", error_msg);
     }
 
     try {
-        int result = b.BinSearch(0, array, static_cast<int>(array.size()) - 1, 0);
+        int result = b.BinSearch(0, array,
+            static_cast<int>(array.size()) - 1, 0);
         FAIL();
     } catch (const std::string error_msg) {
-        ASSERT_EQ("Right border must be greater or equal than left border", error_msg);
+        ASSERT_EQ("Right border must be greater or equal than left border",
+            error_msg);
     }
 }
