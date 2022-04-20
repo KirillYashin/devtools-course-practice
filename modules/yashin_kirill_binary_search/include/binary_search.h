@@ -27,7 +27,7 @@ class BinarySearch {
             const std::string error_msg("Left border > right border");
             throw error_msg;
         }
-        int middle = (left + right) / 2;;
+        int middle = (left + right) / 2;
         bool flag = false;
         while (left <= right && !flag) {
             if (array[middle] == key) {
