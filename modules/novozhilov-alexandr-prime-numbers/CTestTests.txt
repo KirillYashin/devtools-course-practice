@@ -44,7 +44,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Check_Format_1_In_Args PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error occured: Wrong argument format."
+    PASS_REGULAR_EXPRESSION "Error occured: First arg <= 1."
     LABELS "${MODULE}")
 
 add_test(
@@ -53,7 +53,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Check_Format_First_More_Than_Second PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error occured: Wrong argument format."
+    PASS_REGULAR_EXPRESSION "Error occured: First arg more than second."
     LABELS "${MODULE}")
 
 add_test(
@@ -62,7 +62,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Check_Format_Wrong_Type_1 PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error occured: Wrong argument format."
+    PASS_REGULAR_EXPRESSION "Error occured: Wrong argument type."
     LABELS "${MODULE}")
 
 add_test(
@@ -71,7 +71,7 @@ add_test(
 )
 
 set_tests_properties (${prefix}_Can_Check_Format_Wrong_Type_2 PROPERTIES
-    PASS_REGULAR_EXPRESSION "Error occured: Wrong argument format."
+    PASS_REGULAR_EXPRESSION "Error occured: Wrong argument type."
     LABELS "${MODULE}")
 
 add_test(

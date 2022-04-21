@@ -24,12 +24,38 @@ std::string PrimeNumbersApplication::operator()(int argc, const char** argv) {
         return getHelp(argv[0]);
 
     try {
-        if (argc != 3)
-            throw std::runtime_error("Error occured: Should be 2 arguments.\n");
+        if (argc > 3) {
+            std::string error_msg = "Error occured: ";
+            error_msg += "Should be 2 arguments.\nYou entered more.\n";
+            throw std::runtime_error(error_msg);
+        }
+        if (argc == 2) {
+            std::string error_msg = "Error occured: ";
+            error_msg += "Should be 2 arguments.\nYou entered one.\n";
+            throw std::runtime_error(error_msg);
+        }
+        if (argc == 1) {
+            std::string error_msg = "Error occured: ";
+            error_msg += "Should be 2 arguments.\nYou entered none.\n";
+            throw std::runtime_error(error_msg);
+        }
         a = parseArgument(argv[1]);
         b = parseArgument(argv[2]);
-        if (a <= 1 || b <= 1 || b < a)
-            throw std::runtime_error("Error occured: Wrong argument format.\n");
+        if (b < a) {
+            std::string error_msg = "Error occured: ";
+            error_msg += "First arg more than second.\n";
+            throw std::runtime_error(error_msg);
+        }
+        if (a <= 1) {
+            std::string error_msg = "Error occured: ";
+            error_msg += "First arg <= 1.>\n";
+            throw std::runtime_error(error_msg);
+        }
+        if (b <= 1) {
+            std::string error_msg = "Error occured: ";
+            error_msg += "Second arg <= 1.>\n";
+            throw std::runtime_error(error_msg);
+        }
     }
     catch (std::exception& exp) {
         return exp.what();
@@ -55,6 +81,6 @@ bool PrimeNumbersApplication::checkArgument(const std::string& str) {
 
 int PrimeNumbersApplication::parseArgument(const char* arg) {
     if (!checkArgument(arg))
-        throw std::runtime_error("Error occured: Wrong argument format.\n");
+        throw std::runtime_error("Error occured: Wrong argument type.\n");
     return std::stoi(arg);
 }
