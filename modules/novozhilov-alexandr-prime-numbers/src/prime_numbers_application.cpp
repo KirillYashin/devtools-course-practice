@@ -34,11 +34,6 @@ std::string PrimeNumbersApplication::operator()(int argc, const char** argv) {
             error_msg += "Should be 2 arguments.\nYou entered one.\n";
             throw std::runtime_error(error_msg);
         }
-        if (argc == 1) {
-            std::string error_msg = "Error occured: ";
-            error_msg += "Should be 2 arguments.\nYou entered none.\n";
-            throw std::runtime_error(error_msg);
-        }
         a = parseArgument(argv[1]);
         b = parseArgument(argv[2]);
         if (b < a) {
